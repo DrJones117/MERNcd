@@ -30,3 +30,27 @@ console.log(bListPkmn)
 
 const pkmnIds = pokémon.map( p => p.id )
 console.log(pkmnIds)
+
+const pkmnDiv3 = pokémon.filter( p => p.id % 3 === 0 )
+console.log(pkmnDiv3)
+
+const pkmnFire = pokémon.filter( p => p.types.includes("fire") );
+console.log(pkmnFire)
+
+const pkmntypes = pokémon.filter( p => p.types.length > 1 )
+console.log(pkmntypes)
+
+const pkmnNames = pokémon.map( p => p.name )
+console.log(pkmnNames)
+
+const pkmnNN = pokémon.filter( p => p.id > 99 ).map( p => p.name )
+console.log(pkmnNN)
+
+const pkmnPoison = pokémon.filter( p => p.types.includes("poison") ).map( p => p.name )
+console.log(pkmnPoison)
+
+const pkmnFirstType = pokémon.filter( p => p.types.includes("flying") ).map( p => p.types[0] )
+console.log(pkmnFirstType)
+
+const pkmnNormalNum = pokémon.filter( p => p.types.includes("normal"))
+console.log(pkmnNormalNum.length)
