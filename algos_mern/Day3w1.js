@@ -19,6 +19,25 @@ const insertionSort = (arr) => {
     return arr;
 }
 
+// I implemented this afterwards.
+
+const insertionSort = (arr) => {
+    for (let i = 1; i < arr.length - 1; i++) {
+        // let temp = arr[i];
+        let j = i;
+        while (arr[j] < arr[j - 1]) {
+            [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]] // <--
+            // arr[j - 1] = temp;
+            j--;
+        } 
+    }
+    return arr;
+}
+
+
+console.log(insertionSort([198, 34, 71, 98, 64, 17, 82, 638, 167, 2387]));
+
+
 // Don't look at this
 
 const insertionSortShift = (arr) => {
@@ -34,8 +53,6 @@ const insertionSortShift = (arr) => {
     }
     return arr;
 }
-
-console.log(insertionSort([198, 34, 71, 98, 64, 17, 82, 638, 167, 2387]));
 console.log(insertionSortShift([198, 34, 71, 98, 64, 17, 82, 638, 167, 2387]));
 
 //  - efficient for small data sets
