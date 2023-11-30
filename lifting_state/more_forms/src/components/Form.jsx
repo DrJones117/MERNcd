@@ -65,7 +65,6 @@ const Form = (props) => {
 
                 <input id="submitBtn" type="submit" value="Create User"/>
             </form>
-            <p>Live data: { firstName } {lastName} {email} {password} {confirmPassword}</p>
         </>
     );
 }
