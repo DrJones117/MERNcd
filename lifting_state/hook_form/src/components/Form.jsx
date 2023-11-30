@@ -11,7 +11,7 @@ const Form = (props) => {
         e.preventDefault();
 
         const newUser = {firstName, lastName, email, password, confirmPassword}
-        setFirstName("");
+        setFirstName(console.log(firstName));
         setLastName("");
         setEmail("");
         setPassword("");
@@ -21,33 +21,49 @@ const Form = (props) => {
     return (
         <>
             <h1>Create a User</h1>
-            <form>
+            <form onSubmit={ creatUser }>
                 <div>
                     <label>First Name: </label>
-                    <input type="text" value={firstName} onChange = { (e) => setFirstName(e.target.value)} />
+                    <input id="firstName" type="text" value={firstName} 
+                        onChange = { (e) => {
+                            console.log(e.target.value)
+                            setFirstName(e.target.value)  
+                        } } />
                 </div>
 
                 <div>
                     <label>Last Name: </label>
-                    <input type="text" value={lastName} onChange = { (e) => setLastName(e.target.value)} />
+                    <input id="lastName" type="text" value={lastName} onChange = { (e) => {
+                        console.log(e.target.value)
+                        setLastName(e.target.value)
+                    } } />
                 </div>
 
                 <div>
                     <label>Email: </label>
-                    <input type="text" value={firstName} onChange = { (e) => setFirstName(e.target.value)} />
+                    <input id="email" type="text" value={email} onChange = { (e) => {
+                        console.log(e.target.value)
+                        setEmail(e.target.value) 
+                    } } />
                 </div>
 
                 <div>
                     <label>Password: </label>
-                    <input type="text" value={firstName} onChange = { (e) => setFirstName(e.target.value)} />
+                    <input id="password" type="text" value={password} onChange = { (e) => {
+                        console.log(e.target.value)
+                        setPassword(e.target.value) 
+                    } } />
                 </div>
 
                 <div>
                     <label>Confirm Password: </label>
-                    <input type="text" value={firstName} onChange = { (e) => setFirstName(e.target.value)} />
+                    <input id="confirmPassword" type="text" value={confirmPassword} onChange = { (e) => {
+                        console.log(e.target.value)
+                        setConfirmPassword(e.target.value) 
+                    } } />
                 </div>
 
-                <input type="submit" value="Create User"/>
+                <input id="submitBtn" type="submit" value="Create User"/>
             </form>
         </>
     );
