@@ -1,11 +1,8 @@
-import { useState } from 'react'
-
-const Box = (props) => {
+const Box = ({box}) => {
     return (
-        <form>
-            <label className='primary'>Color: </label>
-            <input type="text"/>
-        </form>
+        <>
+            {<div style={{height: "100px", width: "100px", backgroundColor: box, margin: "10px"}}></div>}
+        </>
     );
 }
 
