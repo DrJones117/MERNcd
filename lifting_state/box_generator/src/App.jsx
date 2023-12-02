@@ -12,7 +12,7 @@ function App() {
   return (
     <> 
       <BoxForm addToBoxes={addToBoxes}/>
-        <BoxDisplay boxes = {boxes}/>
+      <BoxDisplay boxes = {boxes}/>
     </>
   )
 }
