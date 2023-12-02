@@ -19,8 +19,9 @@ function App() {
     setTasks(newTasks)
   }
 
-  const deleteTask = ({index}) => {
-    setTasks(tasks.filter((task, idx) => idx != index))
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((task, idx) => idx != index)
+    setTasks(newTasks)
     console.log({tasks})
 }
   
