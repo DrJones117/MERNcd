@@ -1,5 +1,7 @@
 const TaskDisplay = (props) => {
-    const {tasks} = props
+    const {tasks} = props;
+    const {deleteTask} = props;
+    const {completeTask} = props;
 
     return (
         <>
@@ -9,9 +11,9 @@ const TaskDisplay = (props) => {
                         <li style={{display: "flex", justifyContent: "space-between"}}> 
                         <div style={{display: "flex", justifyContent: "space-between", width: "150px"}}>
                             <p>{task}</p>
+
                             {
-                                completed ? <input type="checkbox" checked = {true}/>
-                                : <input type="checkbox"></input>
+                                <input type="checkbox" checked = {completed} onChange={() => completeTask(index)}/>
                             }
                         </div>
                             <button style={{height: "30px", marginTop: "10px", backgroundColor: "red"}}>Delete</button>
