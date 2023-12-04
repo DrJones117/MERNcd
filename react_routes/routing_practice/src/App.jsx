@@ -15,13 +15,11 @@ const Welcome = (props) => {
   );
 }
 
-const OtherRoute = (prop) => {
-  const { par } = useParams();
-  const { C } = useParams();
-  const { bgC } = useParams();
+const OtherRoute = (props) => {
+  const { par, color, bgColor  } = useParams();
 
   return (
-    isNaN(par) ? <h1 style={{color: C, backgroundColor: bgC, width: "1300px"}}>The Word is { par }</h1> : <h1>The Number is { par }</h1>
+    <h1 style={{color, backgroundColor: bgColor, width: "1300px"}}>The {isNaN(par) ? "Word" : "Number"} is { par }</h1>
   )
 }
 
@@ -32,7 +30,7 @@ function App() {
     <Routes>
       <Route path="/home" element={<Welcome />}/>
       <Route path="/:par" element={<OtherRoute />}/>
-      <Route path="/:par/:C/:bgC" element={<OtherRoute />}/>
+      <Route path="/:par/:color/:bgColor" element={<OtherRoute />}/>
     </Routes>
     </>
   )
