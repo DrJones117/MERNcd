@@ -1,23 +1,26 @@
-import { useState, useEffect } from 'react'
-import Form from './components/Form'
-import axios from 'axios';
+// worked with Caleb M
+
+import {useNavigate, useParams, Routes, Route, Link} from 'react-router-dom'
 import './App.css'
+import Form from './components/Form'
+import DisplayPerson from './components/DisplayPerson';
+import DisplayPlanet from './components/DisplayPlanet';
 // https://swapi.dev/api/
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    axios.get("https://swapi.dev/api/")
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => console.log(err))
-  }, [])
+
+
+function App() {
+  const navigate = useNavigate();
+
 
   return (
     <>
-      <Form/>
+      <Form navigate={navigate}/>
+      <Routes>
+        <Route path={"/people/:number"} element={<DisplayPerson />} />
+        <Route path={"/planets/:number"} element={<DisplayPlanet />} />
+      </Routes>
     </>
   )
 }
