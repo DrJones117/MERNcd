@@ -1,0 +1,9 @@
+https://pokeapi.co/api/v2/pokemon/pikachu/
+
+https://pokeapi.co/api/v2/pokemon/bulbasaur/
+
+https://pokeapi.co/api/v2/pokemon/clefairy/
+
+https://pokeapi.co/api/v2/pokemon/raichu/
+
+https://pokeapi.co/api/v2/pokemon/machamp/
