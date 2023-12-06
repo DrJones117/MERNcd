@@ -20,7 +20,7 @@ const DisplayPerson = () => {
             setHairColor(response.data.hair_color);
             setskinColor(response.data.skin_color);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err = "These aren't the Droids you're looking for. https://th.bing.com/th/id/OIP.J7Kmtok0f2mQT7iX_JA_5QHaE8?rs=1&pid=ImgDetMain" ))
         }, [number]);
 
 
