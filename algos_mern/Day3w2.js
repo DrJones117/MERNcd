@@ -27,7 +27,7 @@ function missingValue (arr) {
         return acc;
     }, {sum: 0, exSum: 0})
     thing.exSum += arr.length
-    return thing.exSum - thing.sum; 
+    return thing.exSum - thing.sum;
 }
 
 console.log(missingValue(arr1))
@@ -66,5 +66,6 @@ console.log(missingValue(arr2))
         }
     }
 
-    console.log(minSort(arr2))
+    console.log(minSort(arr1));
+    console.log(minSort(arr2));
 }
