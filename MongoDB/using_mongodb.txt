@@ -1,0 +1,32 @@
+use my_first_db
+
+db.createCollection("students")
+
+db.item.insertOne({name:"Steve", home_state:"California", lucky_number:3, birthday:{month:10, day:3, year:2570}})
+
+db.item.insertMany([{name:"John", home_state:"Tennessee", lucky_number:5, birthday:{month:4, day:20, year:2016}}, 
+{name:"Mike", home_state:"Georgia", lucky_number:5, birthday:{month:7, day:13, year:2444}}, 
+{name:"Shelley", home_state:"Missouri", lucky_number:4, birthday:{month:2, day:5, year:2000}},
+{name:"James", home_state:"Washington", lucky_number:2, birthday:{month:10, day:20, year:3360}}])
+
+db.item.find()
+
+db.item.find({lucky_number: {$gt: 3}})
+
+db.item.updateMany({}, {$addToSet:{interests:  {$each:["coding", "brunch", "MongoDB"]}}})
+
+db.item.update({_id: ObjectId('65721072bc8350f882c393db')}, {$push:{interests:"reading"}})
+
+db.item.update({_id: ObjectId('657213aebc8350f882c393df')}, {$push:{interests:"taxes"}})
+
+db.item.update({ _id: ObjectId('657213aebc8350f882c393df')}, {$pull:{interests:"taxes"}})
+
+db.item.deleteMany({home_state: "California"})
+
+db.item.deleteOne({lucky_number: {$gt: 5}})
+
+db.item.updateMany({}, {$set: {number_of_belts:  0}})
+
+ db.item.updateMany({home_state: "Washington"}, {$inc: {belts: 1}})
+
+ db.item.updateMany({}, {$currentDate: {updated_on: true}})
