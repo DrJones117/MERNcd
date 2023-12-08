@@ -1,6 +1,6 @@
 /* 
-  Given a square matrix (2d array) of integers
-  Calculate the absolute difference between the sums of its diagonals
+    Given a square matrix (2d array) of integers
+    Calculate the absolute difference between the sums of its diagonals
     - top left to bottom right diagonal
     - top right to bottom left diagonal
 */
@@ -8,7 +8,7 @@ const squareMatrix1 = [
     [1, 2, 3],
     [4, 5, 6],
     [9, 8, 9]
-    ];
+];
 const expected1 = 2;
 /* 
     left to right diagonal: 1 + 5 + 9 = 15
@@ -31,4 +31,32 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) {
+    let sum1 = 0;
+    let sum2 = 0;
+    for (let i = 0, j = sqrMatrix.length - 1; i < sqrMatrix.length; i++, j--) {
+        sum1 += sqrMatrix[i][i];
+        sum2 += sqrMatrix[j][i];
+    }
+    return Math.abs(sum1 - sum2);
+}
+
+console.log(diagonalDifference(squareMatrix1))
+console.log(diagonalDifference(squareMatrix2))
+
+let nums = [1,1,1,2,2,3]
+let k = 2
+let output = [1,2]
+
+var topKFrequent = function(nums, k) {
+    let freq = {};
+    for (const n of nums) {
+        freq[n] = (freq[n] ?? 0) + 1;
+    }
+    return Object.entries(freq)
+        .sort(([k1, v], [k2, v2]) => v2 - v)
+        .slice(0, k)
+        .map(([k, _]) => k);
+};
+
+console.log(topKFrequent(nums, k));
