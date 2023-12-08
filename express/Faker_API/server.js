@@ -46,15 +46,15 @@ console.log(newFakeCombo)
 app.use( express.json() );
 app.use( express.urlencoded({ extended: true }) );
 
-app.get("/users/new", (req, res) => {
+app.get("api/users/new", (req, res) => {
     res.send(newFakeUser)
 })
 
-app.get("/companies/new", (req, res) => {
+app.get("api/companies/new", (req, res) => {
     res.send(newFakeCompany)
 })
 
-app.get("/user/company", (req, res) => {
+app.get("api/user/company", (req, res) => {
     res.send(newFakeCombo)
 })
 
