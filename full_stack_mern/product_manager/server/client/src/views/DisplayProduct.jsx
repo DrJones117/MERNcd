@@ -5,10 +5,12 @@ import ProductList from '../components/ProductList'
 import axios from 'axios';
 
 export default (props) => {
+    
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const navigate = useNavigate();
 
-    
+
     const getProducts = () => {
         axios.get('http://localhost:8000/api/products')
         .then(response => {
@@ -20,12 +22,17 @@ export default (props) => {
     
     useEffect(() => {getProducts()}, []);
 
+    const removeFromDom = (productId) => {
+        setProducts(products.filter(product => product._id != productId));
+    }
+
     return (
         <div>
+            <h1>Add a Product</h1>
             <ProductForm getProducts={getProducts}/>
             <hr/>
             {console.log(loaded)}
-            {loaded && <ProductList products={products} />}
+            {loaded && <ProductList products={products} removeFromDom={removeFromDom} navigate={navigate}/>}
         </div>
     )
 }
