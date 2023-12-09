@@ -24,6 +24,13 @@ const product = {
                 console.log(err);
                 res.json(err)
             })
+    },
+    getOneProduct: (req, res) => {
+        Product.findById({_id: req.params.id})
+            .then(product => {
+                res.json(product);
+            })
+            .catch(err => res.json(err))
     }
 }
 

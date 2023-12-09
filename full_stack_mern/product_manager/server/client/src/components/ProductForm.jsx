@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-export default () => {
+const ProductForm = (props) => {
+    const {getProducts} = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
@@ -14,11 +15,15 @@ export default () => {
             description
         })
             .then(response => {
-                console.log(response)
+                console.log(response);
+                getProducts();
+            })
             .catch(err => {
                 console.log(err)
-            })
-        })
+            });
+        setTitle("");
+        setPrice("");
+        setDescription("");
     }
     return (
         <form onSubmit={formHandler}>
@@ -38,3 +43,5 @@ export default () => {
         </form>
     );
 }
+
+export default ProductForm;
