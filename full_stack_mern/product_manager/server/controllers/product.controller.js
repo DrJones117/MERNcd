@@ -9,16 +9,18 @@ const product = {
             price,
             description
         })
-            .then(product => res.json(product))
+            .then(product => {
+                console.log(product)
+                res.json(product)
+            })
             .catch(err => res.json(err))
     },
-    getProducts: (req, res) => {
-            Product.find()
-            .then((data) => {
-                console.log(data);
-                res.json(data);
+    getAllProducts: (req, res) => {
+            Product.find({})
+            .then(products => {
+                res.json(products);
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
                 res.json(err)
             })
