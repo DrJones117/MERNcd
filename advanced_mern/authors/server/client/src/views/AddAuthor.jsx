@@ -1,6 +1,11 @@
-export default () => {
+import AuthorForm from "../components/AuthorForm";
+
+export default (props) => {
+    const { addAuthor } = props
 
     return (
-        <p>This is the add author page</p>
+        <>
+            <AuthorForm addAuthor={addAuthor}/>
+        </>
     );
 }

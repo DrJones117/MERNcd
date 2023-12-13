@@ -1,49 +1,41 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'reactstrap';
 
-import { useParams, useNavigate, Link  } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
-export default (props) => {
-    const { updateAuthor } = props;
+import { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';
 
-    const { id } = useParams();
+const AuthorForm = (props) => {
+    const { addAuthor } = props;
     const navigate = useNavigate();
 
+    // Form input state data.
     const [name, setName] = useState("");
     const [err, setErr] = useState("");
 
-    // Gets the data from the id the user clicked on.
-    useEffect(() => {
-        axios.get(`http://localhost:8000/api/authors/${id}`)
-            .then(({data}) => {
-                setName(data.name)
-            })
-            .catch((err) => console.log(err))
-    }, [])
-
-    // Form Handler
+    // Form handler
     const formHandler = (e) => {
         e.preventDefault();
-        editAuthor({name})
+        console.log({name})
+        createAuthor({name})
     }
 
-    // Edit Author Api request.
-    const editAuthor = (author) => {
-        axios.patch(`http://localhost:8000/api/authors/${id}`, author)
-            .then(({data}) => {
-                console.log(data);
-                updateAuthor(data, id);
-                navigate('/authors');
-                setName("");
+    // Create Author Api request.
+    const createAuthor = (author) => {
+        console.log(author);
+        axios.post('http://localhost:8000/api/authors', {name})
+            .then((response) => {
+                console.log(response.data)
+                addAuthor(response.data)
+                navigate('/authors')
+                setName("")
             })
             .catch(err => {
                 console.log(err.response.data.message)
                 setErr(err.response.data.message)
             })
     }
-
     return (
         <>
             <div className="mt-4">
@@ -59,3 +51,5 @@ export default (props) => {
         </>
     );
 }
+
+export default AuthorForm
