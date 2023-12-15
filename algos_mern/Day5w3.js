@@ -1,6 +1,6 @@
 /*
-  Given an array of ailments, and an array of medication objects that have a nested array of treatedSymptoms
-  return the medication name(s) that treats the most given symptoms
+    Given an array of ailments, and an array of medication objects that have a nested array of treatedSymptoms
+    return the medication name(s) that treats the most given symptoms
 */
 
 // HINTS:
