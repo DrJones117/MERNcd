@@ -7,9 +7,10 @@ function App() {
 
 
   useEffect(() => {
+    console.log(socket)
     console.log("Is this running?");
     socket.on("Welcome", data => console.log(data));
-  
+    
     return () => socket.removeAllListeners;
   }, [socket]);
 

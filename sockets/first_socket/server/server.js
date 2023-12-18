@@ -10,7 +10,7 @@ const io = require("socket.io")(server, {cors: true});
 
 io.on("connection" , socket => {
     console.log(socket.id);
-    socket.on("event_from_client", data => {
+    socket.on("Welcome", data => {
         socket.broadcast.emit("send_data-to_all_other_clients", data);
     });
 });
